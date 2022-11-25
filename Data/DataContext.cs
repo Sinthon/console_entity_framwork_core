@@ -1,21 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
+﻿using Microsoft.EntityFrameworkCore;
+
+using console_entity_framwork_core.Models;
 
 namespace console_entity_framwork_core.Data
 {
-    public partial class AppContext : DbContext
+    public partial class DataContext : DbContext
     {
-        public AppContext()
+        public DataContext()
         {
         }
 
-        public AppContext(DbContextOptions<AppContext> options)
+        public DataContext(DbContextOptions<DataContext> options)
             : base(options)
         {
         }
 
+        public DbSet<User>? User { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
