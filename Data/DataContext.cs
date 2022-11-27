@@ -15,7 +15,7 @@ namespace console_entity_framwork_core.Data
         {
         }
 
-        public DbSet<User>? User { get; set; }
+        public DbSet<Client>? Clients { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -26,6 +26,11 @@ namespace console_entity_framwork_core.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Client>().HasData(new {
+                ClientRefId = "e560dba8bdd2453d97ec2e3ddf2ca2f8",
+                ClientSecret = "e560dba8bdd2453d97ec2e3ddf2ca2f8"
+            });
+            
             OnModelCreatingPartial(modelBuilder);
         }
 
